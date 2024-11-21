@@ -24,10 +24,16 @@ jobs:
 
     - name: Minify JavaScript
       run: minify main.js > main.min.js
-      
+
+    - name: Set up Git user
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
     - name: Commit minified file
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "Minify JavaScript"
+        commit_user_name: github-actions[bot]
+        commit_user_email: github-actions[bot]@users.noreply.github.com
         token: ${{ secrets.GH_PAT }}
-
