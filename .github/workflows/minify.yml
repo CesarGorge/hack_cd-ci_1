@@ -36,4 +36,5 @@ jobs:
         commit_message: "Minify JavaScript"
         commit_user_name: github-actions[bot]
         commit_user_email: github-actions[bot]@users.noreply.github.com
-        token: ${{ secrets.GH_PAT }}
+        repository: ${{ github.repository }}
+        token: ${{ secrets.GITHUB_TOKEN }}
